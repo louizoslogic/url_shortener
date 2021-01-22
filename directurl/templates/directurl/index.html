@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+        <h1>Shorten your URL!</h1>
+
+        <form action="{% url 'directurl:save' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="actual"/>
+            <button type="submit">submit</button>
+        </form>
+
+        <h1>Your URL</h1>
+        <ul>
+          {% for url in urls %}
+            <li />{{url.direct}} | 
+            <a href="https://localhost:8000/{{url.hashed}}">https://localhost:8000/{{url.hashed}}</a>
+          {% endfor %}
+        </ul>
+
+  
+  </body>
+</html>
